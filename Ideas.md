@@ -227,6 +227,14 @@ The player is selling ice cream near a playground. NPC's come along requesting i
 2 Players run around a ballpit with a ballpit ball cannon. The goal is to defeat the other player, each has a set amount of lives. The player must manually load their canon from the ballpit. They can pick up balls and keep a few of them with them. Their cannon has a short reload time. Pinata's spawn that, when shot, give certain powerups to players. 
 
 
+Blue Balls Will become slightly bigger once shot
+purple balls will split into 2 smaller balls after a certain distance
+yellow balls will go 1.3 times faster then ball
+green balls will bounce!
+red balls can go boom!
+
+babbys will spawn in a random border of the ballpit and u will have to shoot them with a ball to ward them off, they will continue to spawn in more and more the longer you play
+
 
 
 
