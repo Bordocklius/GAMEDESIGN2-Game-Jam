@@ -17,6 +17,10 @@ Players are on a playground with rising lava and can fight with eachother to pus
 
 
 
+
+
+
+
 \# Cake launcher game
 
 \## Elements 
@@ -34,6 +38,12 @@ Players are on a playground with rising lava and can fight with eachother to pus
 \## Description
 
 Player has a cake launcher and can pick up different types of cakes. Npc characters exist in the world and want to have a cake shot at them. Depending on the type of NPC, they can be allergic to a certain type of cake and you will lose when you shoot the wrong cake at them.
+
+
+
+
+
+
 
 
 
@@ -55,6 +65,12 @@ Player has to guide water to the destination using water pumps, canals and dams 
 
 
 
+
+
+
+
+
+
 \# Slide obstacle course
 
 \## Elements
@@ -70,6 +86,10 @@ Player has to guide water to the destination using water pumps, canals and dams 
 \## Description
 
 Player slides down an infinite slide, dodging obstacles along the way. Pickups can spawn as well to gain extra points.
+
+
+
+
 
 
 
@@ -90,6 +110,12 @@ Player launches themselves from a swing at the right time. When launched they ca
 
 
 
+
+
+
+
+
+
 \# Physics based boomklimmen
 
 \## Elements
@@ -103,6 +129,12 @@ Player launches themselves from a swing at the right time. When launched they ca
 \## Description
 
 Player climbs up tree with 2 hands using physics
+
+
+
+
+
+
 
 
 
@@ -123,7 +155,13 @@ Player has access to a firework cannon in their fortress. Their objective is to 
 
 
 
-\#balanceer jumper
+
+
+
+
+
+
+\# Balanceer jumper
 
 \## Elements
 
@@ -136,6 +174,12 @@ Player has access to a firework cannon in their fortress. Their objective is to 
 \## Description
 
 Player has to jump between obstacles, trying to get as far as they can. After each jump they have to perform a balancing action (a skill check) to make sure they don't land in the water.
+
+
+
+
+
+
 
 
 
@@ -156,6 +200,12 @@ The player has to collect balloons that spawn in a certain time limit. As they r
 
 
 
+
+
+
+
+
+
 \# Ice cream seller game
 
 \## Element
@@ -169,6 +219,12 @@ The player has to collect balloons that spawn in a certain time limit. As they r
 \## Description
 
 The player is selling ice cream near a playground. NPC's come along requesting ice cream. The player has access to different types of ice cream and has to create ice cream cones according to the preferences of the NPC's that arrive. They have to scoop the ice cream onto the cones and make sure that the different scoops don't slide off of each other.
+
+
+
+
+
+
 
 
 
