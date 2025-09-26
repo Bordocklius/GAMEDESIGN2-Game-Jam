@@ -236,5 +236,8 @@ red balls can go boom!
 babbys will spawn in a random border of the ballpit and u will have to shoot them with a ball to ward them off, they will continue to spawn in more and more the longer you play
 
 
+Ballen groter maken bij een kleine arena
+zorgen dat je in de ballen staat en dat die u vertragen
+
 
 
