@@ -15,9 +15,7 @@ Players are on a playground with rising lava and can fight with eachother to pus
 
 
 
-
-
-
+--------------------------------------------------
 
 
 
@@ -41,9 +39,7 @@ Player has a cake launcher and can pick up different types of cakes. Npc charact
 
 
 
-
-
-
+-----------------------------------------------------
 
 
 
@@ -65,9 +61,7 @@ Player has to guide water to the destination using water pumps, canals and dams 
 
 
 
-
-
-
+-------------------------------------------------
 
 
 
@@ -89,7 +83,7 @@ Player slides down an infinite slide, dodging obstacles along the way. Pickups c
 
 
 
-
+-------------------------------------------------
 
 
 
@@ -110,9 +104,7 @@ Player launches themselves from a swing at the right time. When launched they ca
 
 
 
-
-
-
+-----------------------------------------------------------
 
 
 
@@ -132,9 +124,7 @@ Player climbs up tree with 2 hands using physics
 
 
 
-
-
-
+--------------------------------------------------------------
 
 
 
@@ -155,9 +145,7 @@ Player has access to a firework cannon in their fortress. Their objective is to 
 
 
 
-
-
-
+--------------------------------------------------------------------
 
 
 
@@ -177,9 +165,7 @@ Player has to jump between obstacles, trying to get as far as they can. After ea
 
 
 
-
-
-
+-----------------------------------------------------------------------
 
 
 
@@ -200,9 +186,7 @@ The player has to collect balloons that spawn in a certain time limit. As they r
 
 
 
-
-
-
+-----------------------------------------------------------------------------
 
 
 
@@ -222,9 +206,7 @@ The player is selling ice cream near a playground. NPC's come along requesting i
 
 
 
-
-
-
+-----------------------------------------------------------------------
 
 
 
