@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-
+using TMPro;
 public class Canon : MonoBehaviour
 {
     [SerializeField]
@@ -30,6 +30,8 @@ public class Canon : MonoBehaviour
     private float _offsetStrengthMax;
     [SerializeField]
     private float _shootForce;
+    [SerializeField]
+    private TextMeshProUGUI Text;
 
     [SerializeField] private ForceFieldZone forceField;
     public bool IsCannonSucking;
@@ -53,6 +55,7 @@ public class Canon : MonoBehaviour
 
     private void SuckIn()
     {
+        Text.text = AmmoList.Count.ToString();
         if (AmmoList.Count == MaxAmmoCount)
             return;
 
@@ -66,7 +69,9 @@ public class Canon : MonoBehaviour
                 Vector3 direction = (_barrelPoint.position - rb.position).normalized;
                 rb.AddForce(direction * _suctionForce, ForceMode.Acceleration);
             }
+            Text.text = AmmoList.Count.ToString();
         }
+        
     }
 
     private void OnCannonShoot(InputValue inputValue)
@@ -92,6 +97,7 @@ public class Canon : MonoBehaviour
             rb.AddForce(direction * _shootForce, ForceMode.Impulse);
             AmmoList.Remove(obj);
         }
+        Text.text = AmmoList.Count.ToString();
 
     }
 

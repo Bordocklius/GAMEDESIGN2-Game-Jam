@@ -80,11 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  _slerpDuration: 0
-  _targetAngle: 0
-  _transform: {fileID: 0}
-  _rotationSpeed: 0
+    m_Bits: 64
+  _slerpDuration: 1
+  _targetAngle: 90
+  _transform: {fileID: 844513151278215058}
+  _rotationSpeed: 10
 --- !u!1 &2222759747000808449
 GameObject:
   m_ObjectHideFlags: 0
