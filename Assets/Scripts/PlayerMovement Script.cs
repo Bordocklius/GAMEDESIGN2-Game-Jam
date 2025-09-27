@@ -10,16 +10,23 @@ public class PlayerMovementScript : MonoBehaviour
     private float movementSpeed = 5f;
     [SerializeField]
     private float acceleration = 10f;
+    [SerializeField]
+    private float jumpForce = 50f;
+    [SerializeField]
+    private LayerMask groundLayer;
+    [SerializeField]
+    private float groundCheckDistance = 0.3f;
 
     private Rigidbody _rb;
     private Transform _cameraTransform;
     private Vector2 _inputMovement;
     private float _xRotation = 0f;
+    private bool _jumpRequested = false;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _rb.constraints = RigidbodyConstraints.FreezeRotation; // Prevent unwanted rotation
+        _rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         _cameraTransform = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Locked;
@@ -28,12 +35,14 @@ public class PlayerMovementScript : MonoBehaviour
     private void Update()
     {
         HandleMouseLook();
-        ReadInput(); // Optional if using new Input System
+        ReadInput();
+        HandleJumpInput();
     }
 
     private void FixedUpdate()
     {
         ApplyMovement();
+        ApplyJump();
     }
 
     private void HandleMouseLook()
@@ -50,19 +59,39 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void ReadInput()
     {
-        // Old Input System
         _inputMovement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _inputMovement = Vector2.ClampMagnitude(_inputMovement, 1f);
     }
 
+    private void HandleJumpInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            _jumpRequested = true;
+        }
+    }
     private void ApplyMovement()
     {
         Vector3 moveDirection = transform.right * _inputMovement.x + transform.forward * _inputMovement.y;
         Vector3 targetVelocity = moveDirection.normalized * movementSpeed;
 
         Vector3 velocityChange = targetVelocity - _rb.linearVelocity;
-        velocityChange.y = 0f; // Prevent jumping or flying
+        velocityChange.y = 0f;
 
         _rb.AddForce(velocityChange * acceleration, ForceMode.Acceleration);
     }
+    private void ApplyJump()
+    {
+        if (_jumpRequested)
+        {
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _jumpRequested = false;
+        }
+    }
+    private bool IsGrounded()
+    {
+        // Raycast down slightly below the player's position to check for ground
+        return Physics.Raycast(transform.position, Vector3.down, 0.6f);
+    }
+
 }
