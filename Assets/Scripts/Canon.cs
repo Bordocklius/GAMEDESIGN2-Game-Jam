@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Canon : MonoBehaviour
 {
@@ -55,6 +56,20 @@ public class Canon : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject obj = collision.gameObject;
+        if(obj != null && _layerMask == (_layerMask | (1 << obj.layer)) && _isCannonSucking)
+        {
+            if(_ammoList.Count < _maxAmmoCount)
+            {
+                _ammoList.Add(obj);
+                obj.SetActive(false);
+            }
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
