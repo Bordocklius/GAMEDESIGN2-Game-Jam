@@ -1022,6 +1022,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CannonShoot",
+                    "type": "Button",
+                    "id": "4234e799-d9c6-4088-aaa4-4e131298b376",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1132,6 +1141,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "CannonSuck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6dce8099-4e32-47de-8548-d343c12686d0",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CannonShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9177c422-f68c-4898-a04b-8b32b4613dde",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

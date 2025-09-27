@@ -57,6 +57,20 @@ public class Canon : MonoBehaviour
         }
     }
 
+    private void OnCannonShoot(InputValue inputValue)
+    {
+        if (_ammoList.Count == 0)
+            return;
+
+        GameObject obj = _ammoList[_ammoList.Count - 1].gameObject;
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        if(rb != null )
+        {
+            Debug.Log("Pjew");
+        }
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         GameObject obj = collision.gameObject;
