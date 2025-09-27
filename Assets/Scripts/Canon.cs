@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.Rendering;
 
 public class Canon : MonoBehaviour
 {
@@ -19,6 +19,17 @@ public class Canon : MonoBehaviour
     private float _suctionForce;
     [SerializeField]
     private LayerMask _layerMask;
+
+    [SerializeField]
+    private Camera _mainCamera;
+    [SerializeField]
+    private Transform _crosshairTransform;
+    [SerializeField]
+    private float _range;
+    [SerializeField]
+    private float _offsetStrengthMax;
+    [SerializeField]
+    private float _shootForce;
 
     private bool _isCannonSucking;
 
@@ -67,7 +78,38 @@ public class Canon : MonoBehaviour
         if(rb != null )
         {
             Debug.Log("Pjew");
+            Vector3 direction = GetAimDirection();
+            rb.position = _barrelPoint.position;
+            obj.SetActive(true);
+            rb.AddForce(direction * _shootForce, ForceMode.Impulse);
+            _ammoList.Remove(obj);
         }
+
+    }
+
+    private Vector3 GetAimDirection()
+    {
+        // Shoot ray to crosshair
+        Ray ray = _mainCamera.ScreenPointToRay(_crosshairTransform.position);
+        RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction * _range, Color.red, 2f, true);
+        Physics.Raycast(ray, out hit, _range);
+
+        if (hit.collider == null)
+        {
+            hit.point = ray.origin + ray.direction * _range;
+        }
+
+        
+        Debug.DrawLine(ray.origin, hit.point, Color.blue, 2f, true);
+
+        // Get direction from shootpoint to hitpoint
+        Vector3 direction = (hit.point - _barrelPoint.position).normalized;
+        float randomStrength = Random.Range(0, _offsetStrengthMax);
+        direction = (direction + Random.insideUnitSphere * randomStrength).normalized;
+        Debug.DrawLine(_barrelPoint.position, direction * _range, Color.green, 2f);
+
+        return direction;
 
     }
 
