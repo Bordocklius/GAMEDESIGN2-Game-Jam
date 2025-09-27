@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 844513151278215058}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Targetfoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +78,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d703fcb50cb94e9e534dfdce1e309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _slerpDuration: 0
+  _targetAngle: 0
+  _transform: {fileID: 0}
+  _rotationSpeed: 0
 --- !u!1 &2222759747000808449
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,8 +97,9 @@ GameObject:
   - component: {fileID: 4107322133428415909}
   - component: {fileID: 8387082309978492284}
   - component: {fileID: 2638793413446735123}
+  - component: {fileID: 5437740199231562827}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Targetplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,8 +114,8 @@ Transform:
   m_GameObject: {fileID: 2222759747000808449}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2595, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0.509, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 844513151278215058}
@@ -186,6 +194,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5437740199231562827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222759747000808449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1d703fcb50cb94e9e534dfdce1e309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _slerpDuration: 1
+  _targetAngle: 90
+  _transform: {fileID: 844513151278215058}
+  _rotationSpeed: 10
 --- !u!1 &2314400109576009063
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +241,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.16, y: 0.05, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6976061725774254566}

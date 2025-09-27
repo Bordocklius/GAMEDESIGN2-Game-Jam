@@ -76,11 +76,17 @@ public class Canon : MonoBehaviour
             forceField.PushObjects();
             return ;
         }
+
         GameObject obj = AmmoList[AmmoList.Count - 1].gameObject;
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if(rb != null )
         {
             Vector3 direction = GetAimDirection();
+            BallpitBall ball = obj.GetComponent<BallpitBall>();
+            if (ball != null)
+            {
+                ball.IsShot = true;
+            }            
             obj.transform.position = _barrelPoint.position;
             obj.SetActive(true);
             rb.AddForce(direction * _shootForce, ForceMode.Impulse);
