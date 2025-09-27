@@ -51,6 +51,18 @@ public class PlayerMovementScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        Vector2 lookInput = _playerInput.actions["Look"].ReadValue<Vector2>();
+
+        float lookX = lookInput.x * _currentLookSensitivity;
+        float lookY = lookInput.y * _currentLookSensitivity;
+
+        _xRotation -= lookY;
+        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
+
+        _cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * lookX);
+
     }
 
     private void FixedUpdate()
@@ -85,22 +97,7 @@ public class PlayerMovementScript : MonoBehaviour
         _inputMovement = inputValue.Get<Vector2>();
     }
 
-    private void OnLook(InputValue inputValue)
-    {
-        Vector2 input = inputValue.Get<Vector2>();
-
-        float lookX = input.x * _currentLookSensitivity * Time.deltaTime;
-        float lookY = input.y * _currentLookSensitivity * Time.deltaTime;
-
-        _xRotation -= lookY;
-        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
-
-        _cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * lookX);
-    }
-
-
-
+    
     private void OnJump(InputValue inputValue)
     {
         _jumpRequested = true;
