@@ -2076,13 +2076,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5237253903147670661, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
       propertyPath: _crosshairTransform
       value: 
       objectReference: {fileID: 18327613}
     - target: {fileID: 9057951439776441602, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
       propertyPath: mouseSensitivity
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9057951439776441602, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
       propertyPath: _controllerSensitity

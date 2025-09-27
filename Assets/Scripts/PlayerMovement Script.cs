@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerInput))] // Ensure PlayerInput is attached
 public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField]
-    private float mouseSensitivity = 2f;
+    private float mouseSensitivity = 6f;
     [SerializeField]
-    private float _controllerSensitity;
+    private float controllerSensitivity = 200f; // 100x lower
+
     [SerializeField]
     private float movementSpeed = 5f;
     [SerializeField]
@@ -16,12 +18,15 @@ public class PlayerMovementScript : MonoBehaviour
     private float jumpForce = 50f;
     [SerializeField]
     private LayerMask groundLayer;
-    
+
     private Rigidbody _rb;
     private Transform _cameraTransform;
     private Vector2 _inputMovement;
     private float _xRotation = 0f;
     private bool _jumpRequested = false;
+
+    private PlayerInput _playerInput;
+    private float _currentLookSensitivity;
 
     private void Start()
     {
@@ -30,6 +35,10 @@ public class PlayerMovementScript : MonoBehaviour
 
         _cameraTransform = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Locked;
+
+        _playerInput = GetComponent<PlayerInput>();
+        SetLookSensitivity(_playerInput.currentControlScheme);
+        _playerInput.onControlsChanged += OnControlsChanged;
     }
 
     private void Update()
@@ -44,7 +53,28 @@ public class PlayerMovementScript : MonoBehaviour
         ApplyMovement();
         ApplyJump();
     }
+    private void OnDestroy()
+    {
+        _playerInput.onControlsChanged -= OnControlsChanged;
+    }
 
+    private void OnControlsChanged(PlayerInput input)
+    {
+        SetLookSensitivity(input.currentControlScheme);
+    }
+    private void SetLookSensitivity(string controlScheme)
+    {
+        if (controlScheme == "Gamepad")
+        {
+            _currentLookSensitivity = controllerSensitivity;
+        }
+        else // Keyboard&Mouse
+        {
+            _currentLookSensitivity = mouseSensitivity;
+        }
+
+        Debug.Log($"Control scheme changed to {controlScheme}, sensitivity set to {_currentLookSensitivity}");
+    }
     private void OnMove(InputValue inputValue)
     {
         _inputMovement = inputValue.Get<Vector2>();
@@ -54,29 +84,25 @@ public class PlayerMovementScript : MonoBehaviour
     {
         Vector2 input = inputValue.Get<Vector2>();
 
-        float mouseX = input.x * _controllerSensitity * Time.deltaTime;
-        float mouseY = input.y * _controllerSensitity * Time.deltaTime;
+        float lookX = input.x * _currentLookSensitivity * Time.deltaTime;
+        float lookY = input.y * _currentLookSensitivity * Time.deltaTime;
 
-        _xRotation -= mouseY;
+        _xRotation -= lookY;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
         _cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
-
-        //HandleMouseLook();
+        transform.Rotate(Vector3.up * lookX);
     }
+
+
 
     private void OnJump(InputValue inputValue)
     {
-        if (IsGrounded())
-        {
-            _jumpRequested = true;
-        }
+        _jumpRequested = true;
     }
 
     private void HandleMouseLook()
     {
-
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -100,7 +126,6 @@ public class PlayerMovementScript : MonoBehaviour
             _jumpRequested = true;
         }
     }
-
     private void ApplyMovement()
     {
         Vector3 moveDirection = transform.right * _inputMovement.x + transform.forward * _inputMovement.y;
@@ -111,16 +136,14 @@ public class PlayerMovementScript : MonoBehaviour
 
         _rb.AddForce(velocityChange * acceleration, ForceMode.Acceleration);
     }
-
     private void ApplyJump()
     {
-        if (_jumpRequested)
+        if (_jumpRequested && IsGrounded())
         {
             _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             _jumpRequested = false;
         }
     }
-
     private bool IsGrounded()
     {
         // Raycast down slightly below the player's position to check for ground
