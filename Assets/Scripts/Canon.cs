@@ -31,13 +31,10 @@ public class Canon : MonoBehaviour
     [SerializeField]
     private float _shootForce;
 
+    [SerializeField] private ForceFieldZone forceField;
     public bool IsCannonSucking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -75,8 +72,10 @@ public class Canon : MonoBehaviour
     private void OnCannonShoot(InputValue inputValue)
     {
         if (IsCannonSucking || AmmoList.Count == 0)
-            return;
-
+        {
+            forceField.PushObjects();
+            return ;
+        }
         GameObject obj = AmmoList[AmmoList.Count - 1].gameObject;
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if(rb != null )
@@ -115,6 +114,8 @@ public class Canon : MonoBehaviour
         return direction;
 
     }
+
+
 
     //private void OnCollisionEnter(Collision collision)
     //{
