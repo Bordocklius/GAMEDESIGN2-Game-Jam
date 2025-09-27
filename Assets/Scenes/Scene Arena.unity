@@ -1901,83 +1901,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153736833966550870, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_Name
-      value: SuckPoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 3072415828764318071, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4631158366381537414, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451714479150219598, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451714479150219598, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: MaxAmmoCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: _offsetStrengthMax
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
       propertyPath: _crosshairTransform
       value: 
       objectReference: {fileID: 18327613}
-    - target: {fileID: 9219766908332407671, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9219766908332407671, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9219766908332407671, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9219766908332407671, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2153736833966550870, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1656404773}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
---- !u!1 &1656404770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2153736833966550870, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-  m_PrefabInstance: {fileID: 1456215692}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1656404773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656404770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de8ed29ba47ec34b967a1652e463071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _canon: {fileID: 1829627342}
 --- !u!1 &1706177039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,17 +2130,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787678316}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1829627342 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
-  m_PrefabInstance: {fileID: 1456215692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63b0d10ddd9b1874c89d5ac7a389d42e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1863560248
 GameObject:
   m_ObjectHideFlags: 0

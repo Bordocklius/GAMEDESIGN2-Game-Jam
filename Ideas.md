@@ -239,5 +239,7 @@ babbys will spawn in a random border of the ballpit and u will have to shoot the
 Ballen groter maken bij een kleine arena
 zorgen dat je in de ballen staat en dat die u vertragen
 
+Adjust pressure in ball cannon to shoot further/less acurate or closer/more acurate
+
 
 
