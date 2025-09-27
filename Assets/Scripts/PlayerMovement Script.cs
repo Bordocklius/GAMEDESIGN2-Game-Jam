@@ -7,6 +7,8 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField]
     private float mouseSensitivity = 2f;
     [SerializeField]
+    private float _controllerSensitity;
+    [SerializeField]
     private float movementSpeed = 5f;
     [SerializeField]
     private float acceleration = 10f;
@@ -52,8 +54,8 @@ public class PlayerMovementScript : MonoBehaviour
     {
         Vector2 input = inputValue.Get<Vector2>();
 
-        float mouseX = input.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = input.y * mouseSensitivity * Time.deltaTime;
+        float mouseX = input.x * _controllerSensitity * Time.deltaTime;
+        float mouseY = input.y * _controllerSensitity * Time.deltaTime;
 
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
@@ -66,11 +68,15 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnJump(InputValue inputValue)
     {
-        _jumpRequested = true;
+        if (IsGrounded())
+        {
+            _jumpRequested = true;
+        }
     }
 
     private void HandleMouseLook()
     {
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -94,6 +100,7 @@ public class PlayerMovementScript : MonoBehaviour
             _jumpRequested = true;
         }
     }
+
     private void ApplyMovement()
     {
         Vector3 moveDirection = transform.right * _inputMovement.x + transform.forward * _inputMovement.y;
@@ -104,6 +111,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         _rb.AddForce(velocityChange * acceleration, ForceMode.Acceleration);
     }
+
     private void ApplyJump()
     {
         if (_jumpRequested)
@@ -112,6 +120,7 @@ public class PlayerMovementScript : MonoBehaviour
             _jumpRequested = false;
         }
     }
+
     private bool IsGrounded()
     {
         // Raycast down slightly below the player's position to check for ground
