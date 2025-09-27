@@ -89,7 +89,7 @@ public class PlayerMovementScript : MonoBehaviour
     private bool IsGrounded()
     {
         // Raycast down slightly below the player's position to check for ground
-        return Physics.Raycast(transform.position, Vector3.down, 0.6f);
+        return Physics.Raycast(transform.position, Vector3.down, 0.7f);
     }
 
 }
