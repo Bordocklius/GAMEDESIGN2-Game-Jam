@@ -1015,6 +1015,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "7009cbc3-1d78-4b1d-91d7-0422cee44131",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "CannonSuck",
                     "type": "Button",
                     "id": "0e941da1-1c7b-458f-b4e5-5d7441ebb1c4",
@@ -1103,10 +1112,10 @@
                 {
                     "name": "",
                     "id": "8daf282d-65bf-4111-a47d-ef7d37dd3671",
-                    "path": "<Mouse>/delta",
+                    "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Keyboard&Mouse;Gamepad",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1117,7 +1126,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1136,7 +1145,7 @@
                 {
                     "name": "",
                     "id": "5d9d3209-6530-4def-8e44-ad43755e83a2",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -1158,11 +1167,33 @@
                 {
                     "name": "",
                     "id": "9177c422-f68c-4898-a04b-8b32b4613dde",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CannonShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a905be26-1034-4d6a-861a-0db24b424402",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e6e2d01-1c1e-40b4-99ea-5420c75aa2d1",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

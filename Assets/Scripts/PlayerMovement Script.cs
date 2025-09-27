@@ -32,15 +32,41 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void Update()
     {
-        HandleMouseLook();
-        ReadInput();
-        HandleJumpInput();
+        //HandleMouseLook();
+        //ReadInput();
+        //HandleJumpInput();
     }
 
     private void FixedUpdate()
     {
         ApplyMovement();
         ApplyJump();
+    }
+
+    private void OnMove(InputValue inputValue)
+    {
+        _inputMovement = inputValue.Get<Vector2>();
+    }
+
+    private void OnLook(InputValue inputValue)
+    {
+        Vector2 input = inputValue.Get<Vector2>();
+
+        float mouseX = input.x * mouseSensitivity * Time.deltaTime;
+        float mouseY = input.y * mouseSensitivity * Time.deltaTime;
+
+        _xRotation -= mouseY;
+        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
+
+        _cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
+
+        //HandleMouseLook();
+    }
+
+    private void OnJump(InputValue inputValue)
+    {
+        _jumpRequested = true;
     }
 
     private void HandleMouseLook()
