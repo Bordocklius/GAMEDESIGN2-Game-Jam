@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 932553974687472327}
   - component: {fileID: 3072415828764318071}
+  - component: {fileID: 8288365433729930210}
   m_Layer: 0
-  m_Name: Succ
+  m_Name: SuckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,12 +48,28 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8288365433729930210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153736833966550870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de8ed29ba47ec34b967a1652e463071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _canon: {fileID: 8946424613620110225}
 --- !u!1 &4631158366381537414
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,8 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b0d10ddd9b1874c89d5ac7a389d42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoList: []
-  _maxAmmoCount: 5
+  AmmoList: []
+  MaxAmmoCount: 5
   _barrelPoint: {fileID: 6552130834354995401}
   _suctionRange: 1
   _suctionForce: 10
@@ -189,8 +206,9 @@ MonoBehaviour:
   _mainCamera: {fileID: 3211592553197030658}
   _crosshairTransform: {fileID: 0}
   _range: 100
-  _offsetStrengthMax: 0
+  _offsetStrengthMax: 0.1
   _shootForce: 25
+  IsCannonSucking: 0
 --- !u!114 &518453160370154358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4834888489438816907}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22920097, y: 0, z: 0, w: 0.97337914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -493,19 +511,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6928910106093283774, guid: f029bff115afeb641a2393a0730938bd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97337914
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6928910106093283774, guid: f029bff115afeb641a2393a0730938bd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.22920097
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6928910106093283774, guid: f029bff115afeb641a2393a0730938bd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6928910106093283774, guid: f029bff115afeb641a2393a0730938bd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6928910106093283774, guid: f029bff115afeb641a2393a0730938bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
