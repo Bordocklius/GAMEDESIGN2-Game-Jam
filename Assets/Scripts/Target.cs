@@ -5,7 +5,7 @@ public class Target : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask;
 
-    private bool _isHit;
+    public bool _isHit = false;
     private bool _isDown;
 
     [SerializeField]
