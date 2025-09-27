@@ -91,6 +91,7 @@ public class Canon : MonoBehaviour
             if (ball != null)
             {
                 ball.IsShot = true;
+                ball.Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             }            
             obj.transform.position = _barrelPoint.position;
             obj.SetActive(true);
