@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 public class Canon : MonoBehaviour
 {
     [SerializeField]
-    public List<GameObject> AmmoList;
+    public List<GameObject> AmmoList = new List<GameObject>();
     [SerializeField]
     public int MaxAmmoCount;
 
@@ -31,18 +31,18 @@ public class Canon : MonoBehaviour
     [SerializeField]
     private float _shootForce;
 
-    public bool _isCannonSucking;
+    public bool IsCannonSucking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AmmoList = new List<GameObject>(MaxAmmoCount);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_isCannonSucking)
+        if(IsCannonSucking)
         {
             SuckIn();
         }
@@ -51,11 +51,14 @@ public class Canon : MonoBehaviour
 
     private void OnCannonSuck(InputValue inputValue)
     {
-        _isCannonSucking = !_isCannonSucking;
+        IsCannonSucking = !IsCannonSucking;
     }
 
     private void SuckIn()
-    {        
+    {
+        if (AmmoList.Count == MaxAmmoCount)
+            return;
+
         List<Collider> colliders = Physics.OverlapSphere(_barrelPoint.position, _suctionRange, _layerMask).ToList();
         foreach(Collider collider in colliders)
         {
@@ -71,15 +74,13 @@ public class Canon : MonoBehaviour
 
     private void OnCannonShoot(InputValue inputValue)
     {
-        Debug.Log(AmmoList.Count);
-        if (AmmoList.Count == 0)
+        if (IsCannonSucking || AmmoList.Count == 0)
             return;
 
         GameObject obj = AmmoList[AmmoList.Count - 1].gameObject;
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if(rb != null )
         {
-            Debug.Log("Pjew");
             Vector3 direction = GetAimDirection();
             obj.transform.position = _barrelPoint.position;
             obj.SetActive(true);

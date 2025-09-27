@@ -1926,6 +1926,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
+      propertyPath: _offsetStrengthMax
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946424613620110225, guid: b3c2119ce70b81c4ea371995f5de9480, type: 3}
       propertyPath: _crosshairTransform
       value: 
       objectReference: {fileID: 18327613}

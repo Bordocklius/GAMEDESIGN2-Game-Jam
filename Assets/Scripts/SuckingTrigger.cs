@@ -13,9 +13,8 @@ public class SuckingTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject obj = other.gameObject;
-        if (obj != null && _layerMask == (_layerMask | (1 << obj.layer)) && _canon._isCannonSucking)
+        if (obj != null && _layerMask == (_layerMask | (1 << obj.layer)) && _canon.IsCannonSucking)
         {
-            Debug.Log("Hit");
             if (_canon.AmmoList.Count < _canon.MaxAmmoCount)
             {
                 _canon.AmmoList.Add(obj);
