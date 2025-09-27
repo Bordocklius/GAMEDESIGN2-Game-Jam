@@ -14,9 +14,7 @@ public class PlayerMovementScript : MonoBehaviour
     private float jumpForce = 50f;
     [SerializeField]
     private LayerMask groundLayer;
-    [SerializeField]
-    private float groundCheckDistance = 0.3f;
-
+    
     private Rigidbody _rb;
     private Transform _cameraTransform;
     private Vector2 _inputMovement;
