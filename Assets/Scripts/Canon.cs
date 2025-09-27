@@ -7,9 +7,9 @@ using UnityEngine.Rendering;
 public class Canon : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> _ammoList;
+    public List<GameObject> AmmoList;
     [SerializeField]
-    private int _maxAmmoCount;
+    public int MaxAmmoCount;
 
     [SerializeField]
     private Transform _barrelPoint;
@@ -31,12 +31,12 @@ public class Canon : MonoBehaviour
     [SerializeField]
     private float _shootForce;
 
-    private bool _isCannonSucking;
+    public bool _isCannonSucking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _ammoList = new List<GameObject>(_maxAmmoCount);
+        AmmoList = new List<GameObject>(MaxAmmoCount);
     }
 
     // Update is called once per frame
@@ -47,6 +47,7 @@ public class Canon : MonoBehaviour
             SuckIn();
         }
     }
+
 
     private void OnCannonSuck(InputValue inputValue)
     {
@@ -70,19 +71,20 @@ public class Canon : MonoBehaviour
 
     private void OnCannonShoot(InputValue inputValue)
     {
-        if (_ammoList.Count == 0)
+        Debug.Log(AmmoList.Count);
+        if (AmmoList.Count == 0)
             return;
 
-        GameObject obj = _ammoList[_ammoList.Count - 1].gameObject;
+        GameObject obj = AmmoList[AmmoList.Count - 1].gameObject;
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if(rb != null )
         {
             Debug.Log("Pjew");
             Vector3 direction = GetAimDirection();
-            rb.position = _barrelPoint.position;
+            obj.transform.position = _barrelPoint.position;
             obj.SetActive(true);
             rb.AddForce(direction * _shootForce, ForceMode.Impulse);
-            _ammoList.Remove(obj);
+            AmmoList.Remove(obj);
         }
 
     }
@@ -113,18 +115,18 @@ public class Canon : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        GameObject obj = collision.gameObject;
-        if(obj != null && _layerMask == (_layerMask | (1 << obj.layer)) && _isCannonSucking)
-        {
-            if(_ammoList.Count < _maxAmmoCount)
-            {
-                _ammoList.Add(obj);
-                obj.SetActive(false);
-            }
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    GameObject obj = collision.gameObject;
+    //    if(obj != null && _layerMask == (_layerMask | (1 << obj.layer)) && _isCannonSucking)
+    //    {
+    //        if(AmmoList.Count < MaxAmmoCount)
+    //        {
+    //            AmmoList.Add(obj);
+    //            obj.SetActive(false);
+    //        }
+    //    }
+    //}
 
 
     private void OnDrawGizmos()

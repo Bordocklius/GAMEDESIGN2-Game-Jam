@@ -1,0 +1,26 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SuckingTrigger : MonoBehaviour
+{
+    [SerializeField]
+    private LayerMask _layerMask;
+
+    [SerializeField]
+    private Canon _canon;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject obj = other.gameObject;
+        if (obj != null && _layerMask == (_layerMask | (1 << obj.layer)) && _canon._isCannonSucking)
+        {
+            Debug.Log("Hit");
+            if (_canon.AmmoList.Count < _canon.MaxAmmoCount)
+            {
+                _canon.AmmoList.Add(obj);
+                obj.SetActive(false);                
+            }
+        }
+    }
+}
