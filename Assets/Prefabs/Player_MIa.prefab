@@ -85,9 +85,7 @@ GameObject:
   - component: {fileID: 8946424613620110225}
   - component: {fileID: 518453160370154358}
   - component: {fileID: 2611607911711615810}
-  - component: {fileID: 9121512098977599911}
   - component: {fileID: 1120843653328012825}
-  - component: {fileID: 930574863282255322}
   m_Layer: 0
   m_Name: Player_MIa
   m_TagString: Untagged
@@ -208,6 +206,7 @@ MonoBehaviour:
   _range: 100
   _offsetStrengthMax: 0.1
   _shootForce: 25
+  forceField: {fileID: 0}
   IsCannonSucking: 0
 --- !u!114 &518453160370154358
 MonoBehaviour:
@@ -262,29 +261,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &9121512098977599911
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631158366381537414}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000006
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1120843653328012825
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -312,29 +288,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &930574863282255322
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631158366381537414}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000006
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4834888489438816907
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +490,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7253279947525350605, guid: f029bff115afeb641a2393a0730938bd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6928910106093283774, guid: f029bff115afeb641a2393a0730938bd, type: 3}
