@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))] // Ensure PlayerInput is attached
@@ -46,6 +47,10 @@ public class PlayerMovementScript : MonoBehaviour
         //HandleMouseLook();
         //ReadInput();
         //HandleJumpInput();
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void FixedUpdate()
