@@ -6,7 +6,7 @@ public class ForceFieldZone : MonoBehaviour
     [SerializeField] private Transform forceOrigin; // Usually cannon or force field center
     [SerializeField] private float forceStrength = 15f;
     [SerializeField] private LayerMask affectedLayers;
-
+    [SerializeField]
     private List<Rigidbody> trackedRigidbodies = new List<Rigidbody>();
 
     private void OnTriggerEnter(Collider other)
@@ -32,6 +32,8 @@ public class ForceFieldZone : MonoBehaviour
 
     public void PushObjects()
     {
+        Debug.Log("boom");
+
         foreach (Rigidbody rb in trackedRigidbodies)
         {
             if (rb != null)
